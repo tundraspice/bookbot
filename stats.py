@@ -1,24 +1,23 @@
+
+
 def get_word_count(text):
-    word_count = len(text.split())
-    return word_count
+    return len(text.split())
 
-
-def get_num_of_chars(text):
-    chars = {}
-    for char in text.lower():
-        if char not in chars:
-            chars[char] = 1
+def get_chars_dict(text):
+    chars_dict = {}
+    for c in text:
+        if c not in chars_dict:
+            chars_dict[c] = 1
         else:
-            chars[char] += 1
-    return chars
+            chars_dict[c] += 1
+    return chars_dict
 
 def sort_on(d):
     return d["num"]
 
-
-def get_sorted_num_of_chars(chars_dict):
-    sorted_list = []
+def get_sorted_chars_dict(chars_dict):
+    sorted = []
     for char in chars_dict:
-        sorted_list.append({"char": char, "num": chars_dict[char]})
-    sorted_list.sort(reverse=True, key=sort_on)
-    return sorted_list
+        sorted.append({"char": char, "num": chars_dict[char]})
+    sorted.sort(reverse=True, key=sort_on)
+    return sorted
